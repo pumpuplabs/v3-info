@@ -114,6 +114,9 @@ export function usePoolDatas(poolAddresses: string[]): {
   const [t24, t48, tWeek] = useDeltaTimestamps()
   const { blocks, error: blockError } = useBlocksFromTimestamps([t24, t48, tWeek])
   const [block24, block48, blockWeek] = blocks ?? []
+  // console.log(block24?.number, poolAddresses, 'block24')
+  // console.log(block48?.number, poolAddresses, 'block48')
+  // console.log(blockWeek?.number, poolAddresses, 'blockWeek')
 
   const { loading, error, data } = useQuery<PoolDataResponse>(POOLS_BULK(undefined, poolAddresses), {
     client: dataClient,

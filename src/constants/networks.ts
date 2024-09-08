@@ -17,6 +17,7 @@ export enum SupportedNetwork {
   BNB,
   BASE,
   AVALANCHE,
+  BASE_SEPOLIA,
 }
 
 export type NetworkInfo = {
@@ -117,6 +118,16 @@ export const AvalancheNetworkInfo: NetworkInfo = {
   imageURL: AVALANCHE_LOGO_URL,
 }
 
+export const BaseSepoliaNetworkInfo: NetworkInfo = {
+  chainId: ChainId.BASE_SEPOLIA,
+  id: SupportedNetwork.BASE_SEPOLIA,
+  route: 'base-sepolia',
+  name: 'Base Sepolia',
+  bgColor: '#0052ff',
+  primaryColor: '#0052ff',
+  secondaryColor: '#0052ff',
+  imageURL: BASE_LOGO_URL,
+}
 export const SUPPORTED_NETWORK_VERSIONS: NetworkInfo[] = [
   EthereumNetworkInfo,
   PolygonNetworkInfo,
@@ -126,4 +137,5 @@ export const SUPPORTED_NETWORK_VERSIONS: NetworkInfo[] = [
   BNBNetworkInfo,
   BaseNetworkInfo,
   AvalancheNetworkInfo,
+  BaseSepoliaNetworkInfo,
 ]
