@@ -88,6 +88,7 @@ export const initialState: PoolsState = {
     [SupportedNetwork.BNB]: {},
     [SupportedNetwork.AVALANCHE]: {},
     [SupportedNetwork.BASE]: {},
+    [SupportedNetwork.BASE_SEPOLIA]: {},
   },
 }
 
@@ -106,13 +107,15 @@ export default createReducer(initialState, (builder) =>
     // add address to byAddress keys if not included yet
     .addCase(addPoolKeys, (state, { payload: { poolAddresses, networkId } }) => {
       poolAddresses.map((address) => {
-        if (!state.byAddress[networkId][address]) {
-          state.byAddress[networkId][address] = {
-            data: undefined,
-            chartData: undefined,
-            transactions: undefined,
-            lastUpdated: undefined,
-            tickData: undefined,
+        if (state.byAddress[networkId]) {
+          if (!state.byAddress[networkId][address]) {
+            state.byAddress[networkId][address] = {
+              data: undefined,
+              chartData: undefined,
+              transactions: undefined,
+              lastUpdated: undefined,
+              tickData: undefined,
+            }
           }
         }
       })

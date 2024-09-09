@@ -125,7 +125,6 @@ export function getChainPriority(chainId: ChainId): number {
     case ChainId.POLYGON_MUMBAI:
       return 3
     case ChainId.BASE:
-    case ChainId.BASE_SEPOLIA:
       return 4
     case ChainId.BNB:
       return 5
@@ -134,8 +133,10 @@ export function getChainPriority(chainId: ChainId): number {
     case ChainId.CELO:
     case ChainId.CELO_ALFAJORES:
       return 7
-    default:
+    case ChainId.BASE_SEPOLIA:
       return 8
+    default:
+      return 9
   }
 }
 
