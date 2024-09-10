@@ -81,6 +81,7 @@ export const initialState: TokensState = {
 export default createReducer(initialState, (builder) =>
   builder
     .addCase(updateTokenData, (state, { payload: { tokens, networkId } }) => {
+      console.log(tokens, 'tokens')
       tokens.map(
         (tokenData) =>
           (state.byAddress[networkId][tokenData.address] = {
@@ -120,6 +121,7 @@ export default createReducer(initialState, (builder) =>
     .addCase(
       updatePriceData,
       (state, { payload: { tokenAddress, secondsInterval, priceData, oldestFetchedTimestamp, networkId } }) => {
+        console.log(4)
         state.byAddress[networkId][tokenAddress] = {
           ...state.byAddress[networkId][tokenAddress],
           priceData: {

@@ -8,6 +8,7 @@ import { formatTokenName, formatTokenSymbol } from 'utils/tokens'
 import { useActiveNetworkVersion, useClients } from 'state/application/hooks'
 
 export const POOLS_BULK = (block: number | undefined, pools: string[]) => {
+  console.log(pools, 'pools bulk combined')
   let poolString = `[`
   pools.map((address) => {
     return (poolString += `"${address}",`)

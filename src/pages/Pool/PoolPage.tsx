@@ -26,7 +26,7 @@ import DensityChart from 'components/DensityChart'
 import { MonoSpace } from 'components/shared'
 import { useActiveNetworkVersion } from 'state/application/hooks'
 import { networkPrefix } from 'utils/networkPrefix'
-import { EthereumNetworkInfo } from 'constants/networks'
+import { BaseSepoliaNetworkInfo, EthereumNetworkInfo } from 'constants/networks'
 import { GenericImageWrapper } from 'components/Logo'
 import { Navigate, useParams } from 'react-router-dom'
 import { Trace } from '@uniswap/analytics'
@@ -212,10 +212,10 @@ function PoolPage({ address }: { address: string }) {
                   </StyledInternalLink>
                 </ResponsiveRow>
               </AutoColumn>
-              {activeNetwork !== EthereumNetworkInfo ? null : (
+              {activeNetwork === BaseSepoliaNetworkInfo ? (
                 <RowFixed>
                   <StyledExternalLink
-                    href={`https://app.uniswap.org/#/add/${poolData.token0.address}/${poolData.token1.address}/${poolData.feeTier}`}
+                    href={`http://74.48.78.231/#/add/${poolData.token0.address}/${poolData.token1.address}/${poolData.feeTier}`}
                   >
                     <ButtonGray width="170px" mr="12px" style={{ height: '44px' }}>
                       <RowBetween>
@@ -225,14 +225,14 @@ function PoolPage({ address }: { address: string }) {
                     </ButtonGray>
                   </StyledExternalLink>
                   <StyledExternalLink
-                    href={`https://app.uniswap.org/#/swap?inputCurrency=${poolData.token0.address}&outputCurrency=${poolData.token1.address}`}
+                    href={`http://74.48.78.231/#/swap?inputCurrency=${poolData.token0.address}&outputCurrency=${poolData.token1.address}`}
                   >
                     <ButtonPrimary width="100px" style={{ height: '44px' }}>
                       Trade
                     </ButtonPrimary>
                   </StyledExternalLink>
                 </RowFixed>
-              )}
+              ) : null}
             </ResponsiveRow>
             <ContentLayout>
               <DarkGreyCard>

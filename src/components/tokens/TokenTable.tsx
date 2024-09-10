@@ -125,6 +125,7 @@ export default function TokenTable({
   tokenDatas: TokenData[] | undefined
   maxItems?: number
 }) {
+  console.log(tokenDatas, 'tokenDatas')
   const [currentNetwork] = useActiveNetworkVersion()
 
   // theming

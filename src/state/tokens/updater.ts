@@ -31,11 +31,13 @@ export default function Updater(): null {
   }, [allTokenData])
 
   // update unloaded pool entries with fetched data
+  console.log(unfetchedTokenAddresses, 'unfetchedTokenAddresses')
   const {
     error: tokenDataError,
     loading: tokenDataLoading,
     data: tokenDatas,
   } = useFetchedTokenDatas(unfetchedTokenAddresses)
+  console.log(tokenDatas, 'tokenDatas')
 
   useEffect(() => {
     if (tokenDatas && !tokenDataError && !tokenDataLoading) {

@@ -213,10 +213,8 @@ export function useFetchedTokenDatas(tokenAddresses: string[]): {
       priceUSDChange,
       priceUSDChangeWeek,
     }
-
     return accum
   }, {})
-
   return {
     loading: anyLoading,
     error: anyError,

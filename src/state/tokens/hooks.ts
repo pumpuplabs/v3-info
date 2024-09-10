@@ -100,6 +100,7 @@ export function useTokenData(address: string | undefined): TokenData | undefined
  * @param address
  */
 export function usePoolsForToken(address: string): string[] | undefined {
+  console.log('use pools for token')
   const dispatch = useDispatch<AppDispatch>()
   const [activeNetwork] = useActiveNetworkVersion()
   const token = useSelector((state: AppState) => state.tokens.byAddress[activeNetwork.id]?.[address])

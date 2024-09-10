@@ -110,6 +110,7 @@ export default function Home() {
 
   const allTokens = useAllTokenData()
 
+  console.log(allTokens, 'allTokens')
   const formattedTokens = useMemo(() => {
     return Object.values(allTokens)
       .map((t) => t.data)
