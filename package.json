@@ -128,6 +128,8 @@
     "@apollo/client": "^3.8.6",
     "@data-ui/histogram": "^0.0.84",
     "@ethersproject/experimental": "^5.7.0",
+    "@pumpup/v3-core": "^1.0.0",
+    "@pumpup/v3-periphery": "^1.0.1",
     "@types/ms": "^0.7.33",
     "@types/numeral": "^2.0.1",
     "@types/ua-parser-js": "^0.7.38",
