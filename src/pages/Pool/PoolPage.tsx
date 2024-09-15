@@ -224,7 +224,7 @@ function PoolPage({ address }: { address: string }) {
                     </ButtonGray>
                   </StyledExternalLink>
                   <StyledExternalLink
-                    href={`http://74.48.78.231/#/swap?inputCurrency=${poolData.token0.address}&outputCurrency=${poolData.token1.address}`}
+                    href={`http://74.48.78.231/#/swap?chain=base_sepolia&inputCurrency=${poolData.token0.address}&outputCurrency=${poolData.token1.address}`}
                   >
                     <ButtonPrimary width="100px" style={{ height: '44px' }}>
                       Trade
