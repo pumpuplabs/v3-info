@@ -71,7 +71,7 @@ const ResponsiveLogo = styled(CurrencyLogo)`
 const DataRow = ({ tokenData, index }: { tokenData: TokenData; index: number }) => {
   const theme = useTheme()
   return (
-    <LinkWrapper to={'tokens/' + tokenData.address}>
+    <LinkWrapper to={tokenData.address}>
       <ResponsiveGrid>
         <Label>{index + 1}</Label>
         <Label>
@@ -125,7 +125,6 @@ export default function TokenTable({
   tokenDatas: TokenData[] | undefined
   maxItems?: number
 }) {
-  console.log(tokenDatas, 'tokenDatas')
   const [currentNetwork] = useActiveNetworkVersion()
 
   // theming
