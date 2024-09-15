@@ -241,7 +241,9 @@ export default function TokenPage() {
                           </RowBetween>
                         </ButtonGray>
                       </StyledExternalLink>
-                      <StyledExternalLink href={`https://74.48.78.231/#/swap?inputCurrency=${formattedAddress}`}>
+                      <StyledExternalLink
+                        href={`http://74.48.78.231/#/swap?chain=base_sepolia&inputCurrency=${formattedAddress}`}
+                      >
                         <ButtonPrimary width="100px" bgColor={backgroundColor} style={{ height: '44px' }}>
                           Trade
                         </ButtonPrimary>
