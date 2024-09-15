@@ -6,7 +6,7 @@ import { TokenData } from '../../state/tokens/reducer'
 import Loader, { LoadingRows } from 'components/Loader'
 import { Link } from 'react-router-dom'
 import { AutoColumn } from 'components/Column'
-import CurrencyLogo from 'components/CurrencyLogo'
+import CurrencyLogo, { chainIdToNetworkName } from 'components/CurrencyLogo'
 import { RowFixed } from 'components/Row'
 import { formatDollarAmount } from 'utils/numbers'
 import Percent from 'components/Percent'
@@ -70,8 +70,9 @@ const ResponsiveLogo = styled(CurrencyLogo)`
 
 const DataRow = ({ tokenData, index }: { tokenData: TokenData; index: number }) => {
   const theme = useTheme()
+  const [activeNetwork] = useActiveNetworkVersion()
   return (
-    <LinkWrapper to={tokenData.address}>
+    <LinkWrapper to={`/${chainIdToNetworkName(activeNetwork.chainId)}/tokens/` + tokenData.address}>
       <ResponsiveGrid>
         <Label>{index + 1}</Label>
         <Label>
