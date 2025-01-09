@@ -27,7 +27,8 @@ const Container = styled.div`
 `
 
 const Wrapper = styled(Row)`
-  background-color: ${({ theme }) => theme.black};
+  /* background-color: ${({ theme }) => theme.black}; */
+  background-color: #212026;
   padding: 10px 16px;
   width: 500px;
   height: 38px;
@@ -84,7 +85,7 @@ const Menu = styled.div<{ $hide: boolean }>`
     0px 16px 24px rgba(0, 0, 0, 0.04),
     0px 24px 32px rgba(0, 0, 0, 0.04);
   display: ${({ $hide }) => $hide && 'none'};
-  border: 1px solid ${({ theme }) => theme.pink1};
+  border: 1px solid ${({ theme }) => theme.primary1};
 
   ${({ theme }) => theme.mediaWidth.upToMedium`
     position: absolute;
@@ -100,7 +101,7 @@ const Blackout = styled.div`
   min-height: 100vh;
   width: 100vw;
   z-index: -40;
-  background-color: black;
+  background-color: #212026;
   opacity: 0.7;
   left: 0;
   top: 0;
@@ -123,7 +124,7 @@ const Break = styled.div`
 `
 
 const HoverText = styled.div<{ $hide?: boolean | undefined }>`
-  color: ${({ theme }) => theme.blue1};
+  color: ${({ theme }) => theme.green2};
   display: ${({ $hide = false }) => $hide && 'none'};
   :hover {
     cursor: pointer;
@@ -148,8 +149,8 @@ const OptionButton = styled.div<{ $enabled: boolean }>`
   margin-right: 10px;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme, $enabled }) => ($enabled ? theme.pink1 : 'transparent')};
-  color: ${({ theme, $enabled }) => ($enabled ? theme.white : theme.pink1)};
+  background-color: ${({ theme, $enabled }) => ($enabled ? theme.primary1 : 'transparent')};
+  color: ${({ theme, $enabled }) => ($enabled ? '#0A090D' : theme.primary1)};
   :hover {
     opacity: 0.6;
     cursor: pointer;

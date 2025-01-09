@@ -3,13 +3,15 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { darken } from 'polished'
 import styled from 'styled-components'
 import LogoDark from '../../assets/svg/logo_white.svg'
-import Menu from '../Menu'
+// import Menu from '../Menu'
 import Row, { RowFixed, RowBetween } from '../Row'
 import SearchSmall from 'components/Search'
 import NetworkDropdown from 'components/Menu/NetworkDropdown'
 import { useActiveNetworkVersion } from 'state/application/hooks'
 import { networkPrefix } from 'utils/networkPrefix'
 import { AutoColumn } from 'components/Column'
+// import { ExternalLink } from 'theme'
+import { INTERFACE_SITE } from 'constants/index'
 
 const HeaderFrame = styled.div`
   display: grid;
@@ -28,8 +30,7 @@ const HeaderFrame = styled.div`
     0 1px 3px rgba(0, 0, 0, 0.12),
     0 1px 2px rgba(0, 0, 0, 0.24);
 
-  background-color: ${({ theme }) => theme.bg0};
-
+  background-color: #0a090d;
   @media (max-width: 1080px) {
     grid-template-columns: 1fr;
     padding: 0.5rem 1rem;
@@ -149,6 +150,11 @@ const SmallContentGrouping = styled.div`
   }
 `
 
+// const StyledLink = styled(ExternalLink)`
+//   font-size: 12px;
+//   color: ${({ theme }) => theme.text1};
+// `
+
 export default function Header() {
   const [activeNewtork] = useActiveNetworkVersion()
 
@@ -157,12 +163,13 @@ export default function Header() {
   return (
     <HeaderFrame>
       <HeaderRow>
-        <Title to={networkPrefix(activeNewtork)}>
+        <Title to={INTERFACE_SITE + networkPrefix(activeNewtork)}>
           <UniIcon>
             <img width={'24px'} src={LogoDark} alt="logo" />
           </UniIcon>
         </Title>
         <HeaderLinks>
+          {/* <StyledLink href={INTERFACE_SITE}>PumpUp</StyledLink> */}
           <StyledNavLink id={`pool-nav-link`} to={networkPrefix(activeNewtork)} $isActive={pathname === '/'}>
             Overview
           </StyledNavLink>
@@ -185,13 +192,13 @@ export default function Header() {
       <HeaderControls>
         <NetworkDropdown />
         <SearchSmall />
-        <Menu />
+        {/* <Menu /> */}
       </HeaderControls>
       <SmallContentGrouping>
         <AutoColumn $gap="sm">
           <RowBetween>
             <NetworkDropdown />
-            <Menu />
+            {/* <Menu /> */}
           </RowBetween>
           <SearchSmall />
         </AutoColumn>

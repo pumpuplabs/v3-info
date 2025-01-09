@@ -52,4 +52,8 @@ export const ResponsiveRow = styled(RowBetween)`
   `};
 `
 
+export const RowGrid = styled.div`
+  display: grid;
+`
+
 export default Row

@@ -2,7 +2,7 @@ import React, { Suspense, useState, useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import Header from '../components/Header'
-import URLWarning from '../components/Header/URLWarning'
+// import URLWarning from '../components/Header/URLWarning'
 import Popups from '../components/Popups'
 import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
 import Home from './Home'
@@ -16,7 +16,7 @@ import { ExternalLink, TYPE } from 'theme'
 import { useActiveNetworkVersion, useSubgraphStatus } from 'state/application/hooks'
 import { DarkGreyCard } from 'components/Card'
 import { SUPPORTED_NETWORK_VERSIONS, EthereumNetworkInfo, OptimismNetworkInfo } from 'constants/networks'
-import { Link } from 'rebass'
+import { Footer } from 'components/Footer'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -56,9 +56,9 @@ const BodyWrapper = styled.div<{ $warningActive?: boolean }>`
   }
 `
 
-const Marginer = styled.div`
-  margin-top: 5rem;
-`
+// const Marginer = styled.div`
+//   margin-top: 5rem;
+// `
 
 const Hide1080 = styled.div`
   @media (max-width: 1080px) {
@@ -80,21 +80,6 @@ const WarningBanner = styled.div`
   width: 100%;
   text-align: center;
   font-weight: 500;
-`
-
-const UrlBanner = styled.div`
-  background-color: ${({ theme }) => theme.pink1};
-  padding: 1rem 0.75rem;
-  color: white;
-  font-size: 14px;
-  width: 100%;
-  text-align: center;
-  font-weight: 500;
-`
-
-const Decorator = styled.span`
-  text-decoration: underline;
-  color: white;
 `
 
 const BLOCK_DIFFERENCE_THRESHOLD = 30
@@ -137,7 +122,7 @@ export default function App() {
         <LocalLoader fill={true} />
       ) : (
         <AppWrapper>
-          <URLWarning />
+          {/* <URLWarning /> */}
           <HeaderWrapper>
             {showNotSyncedWarning && (
               <BannerWrapper>
@@ -147,14 +132,6 @@ export default function App() {
                 </WarningBanner>
               </BannerWrapper>
             )}
-            <BannerWrapper>
-              <UrlBanner>
-                {`info.uniswap.org is being deprecated on June 11th. Explore the new combined V2 and V3 analytics at `}
-                <Link href={'https://app.uniswap.org/explore'}>
-                  <Decorator>app.uniswap.org</Decorator>
-                </Link>
-              </UrlBanner>
-            </BannerWrapper>
             <Hide1080>
               <TopBar />
             </Hide1080>
@@ -184,9 +161,11 @@ export default function App() {
                 <Route path="/:networkID?/tokens" element={<TokensOverview />} />
                 <Route path="/:networkID?" element={<Home />} />
               </Routes>
-              <Marginer />
+              {/* <Marginer /> */}
             </BodyWrapper>
           )}
+
+          <Footer />
         </AppWrapper>
       )}
     </Suspense>

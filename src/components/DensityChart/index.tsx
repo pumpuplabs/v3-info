@@ -297,7 +297,7 @@ export default function DensityChart({ address }: DensityChartProps) {
               }}
             >
               {zoomedData?.map((entry, index) => {
-                return <Cell key={`cell-${index}`} fill={entry.isCurrent ? theme?.pink1 : theme?.blue1} />
+                return <Cell key={`cell-${index}`} fill={entry.isCurrent ? theme?.pink1 : theme?.green2} />
               })}
               <LabelList
                 dataKey="activeLiquidity"

@@ -42,6 +42,7 @@ import { useCMCLink } from 'hooks/useCMCLink'
 import CMCLogo from '../../assets/images/cmc.png'
 import { useParams } from 'react-router-dom'
 import { Trace } from '@uniswap/analytics'
+import { INTERFACE_SITE } from 'constants/index'
 
 const PriceText = styled(TYPE.label)`
   font-size: 36px;
@@ -169,10 +170,7 @@ export default function TokenPage() {
           !tokenData.exists ? (
             <LightGreyCard style={{ textAlign: 'center' }}>
               No pool has been created with this token yet. Create one
-              <StyledExternalLink
-                style={{ marginLeft: '4px' }}
-                href={`https://app.uniswap.org/#/add/${formattedAddress}`}
-              >
+              <StyledExternalLink style={{ marginLeft: '4px' }} href={`${INTERFACE_SITE}/#/add/${formattedAddress}`}>
                 here.
               </StyledExternalLink>
             </LightGreyCard>
@@ -233,7 +231,7 @@ export default function TokenPage() {
                   </AutoColumn>
                   {activeNetwork !== BaseSepoliaNetworkInfo ? null : (
                     <RowFixed>
-                      <StyledExternalLink href={`http://74.48.78.231/#/add/${formattedAddress}`}>
+                      <StyledExternalLink href={`${INTERFACE_SITE}/#/add/${formattedAddress}`}>
                         <ButtonGray width="170px" mr="12px" height={'100%'} style={{ height: '44px' }}>
                           <RowBetween>
                             <Download size={24} />
@@ -242,7 +240,7 @@ export default function TokenPage() {
                         </ButtonGray>
                       </StyledExternalLink>
                       <StyledExternalLink
-                        href={`http://74.48.78.231/#/swap?chain=base_sepolia&inputCurrency=${formattedAddress}`}
+                        href={`${INTERFACE_SITE}/#/swap?chain=base_sepolia&inputCurrency=${formattedAddress}`}
                       >
                         <ButtonPrimary width="100px" bgColor={backgroundColor} style={{ height: '44px' }}>
                           Trade

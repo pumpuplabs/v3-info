@@ -4,7 +4,7 @@ import { AutoColumn } from 'components/Column'
 import { TYPE } from 'theme'
 import { ResponsiveRow, RowBetween, RowFixed } from 'components/Row'
 import LineChart from 'components/LineChart/alt'
-import useTheme from 'hooks/useTheme'
+// import useTheme from 'hooks/useTheme'
 import { useProtocolChartData, useProtocolData, useProtocolTransactions } from 'state/protocol/hooks'
 import { DarkGreyCard } from 'components/Card'
 import { formatDollarAmount } from 'utils/numbers'
@@ -12,7 +12,7 @@ import Percent from 'components/Percent'
 import { HideMedium, HideSmall, StyledInternalLink } from '../../theme/components'
 import TokenTable from 'components/tokens/TokenTable'
 import PoolTable from 'components/pools/PoolTable'
-import { PageWrapper, ThemedBackgroundGlobal } from 'pages/styled'
+import { PageWrapper } from 'pages/styled'
 import { unixToDate } from 'utils/date'
 import BarChart from 'components/BarChart/alt'
 import { useAllPoolData } from 'state/pools/hooks'
@@ -25,6 +25,7 @@ import { useTransformedVolumeData } from 'hooks/chart'
 import { SmallOptionButton } from 'components/Button'
 import { VolumeWindow } from 'types'
 import { Trace } from '@uniswap/analytics'
+import useTheme from 'hooks/useTheme'
 
 const ChartWrapper = styled.div`
   width: 49%;
@@ -38,8 +39,6 @@ export default function Home() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-
-  const theme = useTheme()
 
   const [activeNetwork] = useActiveNetworkVersion()
 
@@ -110,7 +109,6 @@ export default function Home() {
 
   const allTokens = useAllTokenData()
 
-  console.log(allTokens, 'allTokens')
   const formattedTokens = useMemo(() => {
     return Object.values(allTokens)
       .map((t) => t.data)
@@ -126,10 +124,12 @@ export default function Home() {
     return formatDollarAmount(protocolData?.tvlUSD, 2, true)
   }, [liquidityHover, protocolData?.tvlUSD])
 
+  const theme = useTheme()
+
   return (
     <Trace page={'home-page'} shouldLogImpression>
       <PageWrapper>
-        <ThemedBackgroundGlobal $backgroundColor={activeNetwork.bgColor} />
+        {/* <ThemedBackgroundGlobal $backgroundColor={activeNetwork.bgColor} /> */}
         <AutoColumn $gap="16px">
           <TYPE.main>Uniswap Overview</TYPE.main>
           <ResponsiveRow>
@@ -138,7 +138,7 @@ export default function Home() {
                 data={formattedTvlData}
                 height={220}
                 minHeight={332}
-                color={activeNetwork.primaryColor}
+                color={theme?.primary1}
                 value={liquidityHover}
                 label={leftLabel}
                 setValue={setLiquidityHover}
@@ -167,7 +167,7 @@ export default function Home() {
                     ? weeklyVolumeData
                     : formattedVolumeData
                 }
-                color={theme?.blue1}
+                color={theme?.primary1}
                 setValue={setVolumeHover}
                 setLabel={setRightLabel}
                 value={volumeHover}
@@ -250,7 +250,7 @@ export default function Home() {
           <RowBetween>
             <TYPE.main>Transactions</TYPE.main>
           </RowBetween>
-          {transactions ? <TransactionsTable transactions={transactions} color={activeNetwork.primaryColor} /> : null}
+          {transactions ? <TransactionsTable transactions={transactions} color={theme?.primary1} /> : null}
         </AutoColumn>
       </PageWrapper>
     </Trace>

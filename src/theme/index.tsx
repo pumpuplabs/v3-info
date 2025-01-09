@@ -47,7 +47,7 @@ export function colors(darkMode: boolean): Colors {
     text5: darkMode ? '#2C2F36' : '#EDEEF2',
 
     // backgrounds / greys
-    bg0: darkMode ? '#191B1F' : '#F7F8FA',
+    bg0: darkMode ? '#131217' : '#F7F8FA',
     bg1: darkMode ? '#1F2128' : '#FFFFFF',
     bg2: darkMode ? '#2C2F36' : '#F7F8FA',
     bg3: darkMode ? '#40444F' : '#EDEEF2',
@@ -59,9 +59,9 @@ export function colors(darkMode: boolean): Colors {
     advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
 
     //primary colors
-    primary1: darkMode ? '#2172E5' : '#ff007a',
-    primary2: darkMode ? '#3680E7' : '#FF8CC3',
-    primary3: darkMode ? '#4D8FEA' : '#FF99C9',
+    primary1: darkMode ? '#69FF8D' : '#ff007a',
+    primary2: darkMode ? '#69FF8D' : '#FF8CC3',
+    primary3: darkMode ? '#69FF8D' : '#FF99C9',
     primary4: darkMode ? '#376bad70' : '#F6DDE8',
     primary5: darkMode ? '#153d6f70' : '#FDEAF1',
 
@@ -79,6 +79,7 @@ export function colors(darkMode: boolean): Colors {
     red2: '#F82D3A',
     red3: '#D60000',
     green1: '#27AE60',
+    green2: '#69FF8D',
     yellow1: '#FFE270',
     yellow2: '#F3841E',
     yellow3: '#F3B71E',
@@ -225,7 +226,8 @@ html {
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
   color: ${({ theme }) => theme.text1};
-  background-color: ${({ theme }) => theme.bg1};
+  /* background-color: ${({ theme }) => theme.bg1}; */
+  background-color: #0A090D;
 }
 
 .three-line-legend-dark {

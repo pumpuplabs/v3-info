@@ -66,7 +66,7 @@ export const IconWrapper = styled.div<{ stroke?: string; size?: string; marginRi
   margin-right: ${({ marginRight }) => marginRight ?? 0};
   margin-left: ${({ marginLeft }) => marginLeft ?? 0};
   & > * {
-    stroke: ${({ theme, stroke }) => stroke ?? theme.blue1};
+    stroke: ${({ theme, stroke }) => stroke ?? theme.green2};
   }
 `
 
@@ -169,7 +169,7 @@ export const LinkIcon = styled(LinkIconFeather)`
   height: 16px;
   width: 18px;
   margin-left: 10px;
-  stroke: ${({ theme }) => theme.blue1};
+  stroke: ${({ theme }) => theme.green1};
 `
 
 export const TrashIcon = styled(Trash)`

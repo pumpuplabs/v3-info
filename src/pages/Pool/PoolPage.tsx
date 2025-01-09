@@ -31,6 +31,7 @@ import { GenericImageWrapper } from 'components/Logo'
 import { Navigate, useParams } from 'react-router-dom'
 import { Trace } from '@uniswap/analytics'
 import { InterfacePageName } from '@uniswap/analytics-events'
+import { INTERFACE_SITE } from 'constants/index'
 
 const ContentLayout = styled.div`
   display: grid;
@@ -214,7 +215,7 @@ function PoolPage({ address }: { address: string }) {
               {activeNetwork === BaseSepoliaNetworkInfo ? (
                 <RowFixed>
                   <StyledExternalLink
-                    href={`http://74.48.78.231/#/add/${poolData.token0.address}/${poolData.token1.address}/${poolData.feeTier}`}
+                    href={`${INTERFACE_SITE}/#/add/${poolData.token0.address}/${poolData.token1.address}/${poolData.feeTier}`}
                   >
                     <ButtonGray width="170px" mr="12px" style={{ height: '44px' }}>
                       <RowBetween>
@@ -224,7 +225,7 @@ function PoolPage({ address }: { address: string }) {
                     </ButtonGray>
                   </StyledExternalLink>
                   <StyledExternalLink
-                    href={`http://74.48.78.231/#/swap?chain=base_sepolia&inputCurrency=${poolData.token0.address}&outputCurrency=${poolData.token1.address}`}
+                    href={`${INTERFACE_SITE}/#/swap?chain=base_sepolia&inputCurrency=${poolData.token0.address}&outputCurrency=${poolData.token1.address}`}
                   >
                     <ButtonPrimary width="100px" style={{ height: '44px' }}>
                       Trade
